@@ -1,0 +1,47 @@
+body {
+	font-size:11px;
+}
+#container {
+	width: 90%;
+	margin-top: 30px;
+}
+header {
+	background-image:url('../images/medium_header_logo.gif');
+	background-position:bottom;
+	height: 70px;
+}
+nav {
+	margin: 0 0 10px 0;
+	padding: 15px 0 7px 7px;
+}
+nav ul li {
+	margin: 0 1.5em 0 0;
+	font-size: 1em;
+}
+nav ul li a {
+		padding:5px;
+		margin: 3px 0px;
+}
+/* when you hover over the menu button it moves 5 pixels up */
+nav ul li:hover {
+	margin-top:-5px;
+}
+section {
+	width:50%;
+	font-size: 10px;
+}
+article {
+	width:50%;
+	font-size:10px;
+}
+footer {
+	height:20px;
+	padding:3px;
+}
+figcaption {
+		font-size:8px;
+}
+video {
+	width:280px;
+	height:220px;
+}
