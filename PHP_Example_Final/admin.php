@@ -45,7 +45,7 @@ $num = $stmt->rowCount();
 echo "".'<br />';
 
 echo "<a href='bureau.php'>Create New Record</a>".'<br />';
-echo "<a href='logout.php'>logout of admin</a>".'<br />';
+echo "<a href='login.php?u=1'>logout of admin</a>".'<br />';
 if($num>0){ //check if more than 0 record found
 
     echo "<table border='1'>";//start table

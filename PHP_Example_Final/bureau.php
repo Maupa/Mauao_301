@@ -114,29 +114,29 @@ try {
 <!--we have our html form here where user information will be entered-->
 <form action='#' method='post' border='0'>
     <table>
-       <tr>
+        <tr>
             <td>Activity</td>
-            <td><input type='text' name='activity' value='<?php echo $activity;  ?>' /></td>
+            <td><input type='text' name='activity' value='<?php if(isset($activity)){ echo $activity;}  ?>' /></td>
         </tr>
         <tr>
             <td>Theme</td>
-            <td><input type='text' name='theme' value='<?php echo $theme;  ?>' /></td>
+            <td><input type='text' name='theme' value='<?php if(isset($theme)){echo $theme;} ?>' /></td>
         </tr>
         <tr>
             <td>Description</td>
-                <td ><textarea name='description' rows ='10' cols ='100' wrap = 'virtual'><?php echo $description;  ?></textarea>
+                <td ><textarea name='description' rows ='10' cols ='100' wrap = 'virtual'><?php if(isset($description)){echo $description;}  ?></textarea>
            <!-- textarea gives a multilined (10 rows) area to display the field -->
         </tr>
         <tr>
             <td>Website</td>
-            <td><input type='text' name='website'  value='<?php echo $website;  ?>' /></td>
+            <td><input type='text' name='website'  value='<?php if(isset($website)){echo $website;}  ?>' /></td>
         <tr>
             <td>Image Name</td>
-            <td><input type='text' name='image'  value='<?php echo $image;  ?>' /></td>
+            <td><input type='text' name='image'  value='<?php if(isset($image)){echo $image;}  ?>' /></td>
         </tr>
         <tr>
             <td>Tourguide_id</td>
-            <td><input type='text' name='tourguide_id'  value='<?php echo $tourguide_id;  ?>' /></td>
+            <td><input type='text' name='tourguide_id'  value='<?php if(isset($tourguide_id)){echo $tourguide_id;}  ?>' /></td>
         </tr>
         <tr>
             <td></td>

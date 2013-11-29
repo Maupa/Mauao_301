@@ -35,7 +35,7 @@ require_once('includes/connect.php');
 	<input type="submit" name="submit" value="Search" />
 	</form>
 	</div>
-		<br /><a href="loginform.php">Admin</a>
+		<br /><a href="login.php">Admin</a>
 	</ul>
 
 	</nav>
