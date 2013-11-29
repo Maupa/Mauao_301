@@ -44,7 +44,7 @@ $stmt->execute();
 $num = $stmt->rowCount();
 echo "".'<br />';
 
-echo "<a href='add.php'>Create New Record</a>".'<br />';
+echo "<a href='bureau.php'>Create New Record</a>".'<br />';
 echo "<a href='logout.php'>logout of admin</a>".'<br />';
 if($num>0){ //check if more than 0 record found
 
@@ -80,7 +80,7 @@ if($num>0){ //check if more than 0 record found
                  echo "<td>{$tourguide_id}</td>";
                 echo "<td>";
                     //we will use this links on next part of this post
-                    echo "<a href='edit.php?id={$id}'>Edit</a>";
+                     echo "<a href='bureau.php?e={$id}'>Edit</a>";
                     echo " / ";
                     //we will use this links on next part of this post
                     echo "<a href='#' onclick='delete_user( {$id} );'>Delete</a>";
