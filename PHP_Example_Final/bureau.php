@@ -61,35 +61,11 @@ switch ($action) {
 
 /*-------RETREAVE FROM DB-------*/
 if (isset($_GET['e'])){
-
-try {
-    //prepare query
-    $query = "select id, activity, theme, description, website, image, tourguide_id  from activities where id = :id limit 0,1";
-    $stmt = $pdo->prepare( $query );
-    $stmt->bindParam(':id', $_REQUEST['id']);
-    //execute our query
-    $stmt->execute();
-   
-    //store retrieved row to a variable
-    $row = $stmt->fetch(PDO::FETCH_ASSOC);
-   
-    //values to fill up our form
-    $id = $row['id'];
-    $activity = $row['activity'];
-    $theme = $row['theme'];
-    $description = $row['description'];
-    $website = $row['website'];
-    $image = $row['image'];
-    $tourguide_id = $row['tourguide_id'];
-}catch(PDOException $exception){ //to handle error
-    echo "Error: " . $exception->getMessage();
-}
-
     try {
         //prepare query
         $query = "select id, activity, theme, description, website, image, tourguide_id  from activities where id = :id limit 0,1";
         $stmt = $pdo->prepare( $query );
-        $stmt->bindParam(':id', $_GET['e']);
+        $stmt->bindParam(':id', $_REQUEST['id']);
         //execute our query
         $stmt->execute();
        
@@ -105,10 +81,9 @@ try {
         $image = $row['image'];
         $tourguide_id = $row['tourguide_id'];
     }catch(PDOException $exception){ //to handle error
-        echo '<p class="warning">'."Error: " . $exception->getMessage() . '</p>';
+        echo "Error: " . $exception->getMessage();
     }
 }
-
 
 ?>
 <!--we have our html form here where user information will be entered-->
