@@ -35,7 +35,7 @@ switch ($action) {
         }catch(PDOException $exception){ //to handle error
             echo '<p class="warning">'."Error: " . $exception->getMessage() . '</p>';
         }
-        break;
+    break;
 
     /*-----If Creating-----*/
     case 'create':
@@ -55,7 +55,7 @@ switch ($action) {
         }catch(PDOException $exception){ //to handle error
                 echo '<p class="warning">'."Error: " . $exception->getMessage() . '</p>';
         }
-        break;
+    break;
     
 }
 
