@@ -12,78 +12,78 @@ require_once 'includes/connect.php';
 <body>
 
 <?php
-/*-------INSERT TO DB-------*/
-$action = isset( $_POST['action'] ) ? $_POST['action'] : "";
-switch ($action) {
-    /*-----If Updating-----*/
-    case 'update':
-        try{
-       
-            //write query
-            $query = "UPDATE activities
-                        SET activity = :activity, theme = :theme, description = :description, website  = :website, image = :image, tourguide_id = :tourguide_id
-                        where id = :id";
-            //prepare query for excecution and bind the parameters
-        include 'includes/prepare_bind.php';
-            $stmt->bindParam(':id',$_POST['id']);
+    /*-------INSERT TO DB-------*/
+    $action = isset( $_POST['action'] ) ? $_POST['action'] : "";
+    switch ($action) {
+        /*-----If Updating-----*/
+        case 'update':
+            try{
            
-            // Execute the query
-            $stmt->execute();
-           
-            echo "<p class='success'>Successful editing!</p>";
-       
-        }catch(PDOException $exception){ //to handle error
-            echo '<p class="warning">'."Error: " . $exception->getMessage() . '</p>';
-        }
-    break;
-
-    /*-----If Creating-----*/
-    case 'create':
-        try{
-       
-            //write query  
-            $query = "INSERT INTO activities 
-            SET activity = :activity, theme = :theme, description = :description, website  = :website, image = :image, tourguide_id = :tourguide_id";
-            //prepare query for excecution and bind the parameters
+                //write query
+                $query = "UPDATE activities
+                            SET activity = :activity, theme = :theme, description = :description, website  = :website, image = :image, tourguide_id = :tourguide_id
+                            where id = :id";
+                //prepare query for excecution and bind the parameters
             include 'includes/prepare_bind.php';
-            
-            // Execute the query
+                $stmt->bindParam(':id',$_POST['id']);
+               
+                // Execute the query
+                $stmt->execute();
+               
+                echo "<p class='success'>Successful editing!</p>";
+           
+            }catch(PDOException $exception){ //to handle error
+                echo '<p class="warning">'."Error: " . $exception->getMessage() . '</p>';
+            }
+            break;
+
+        /*-----If Creating-----*/
+        case 'create':
+            try{
+           
+                //write query  
+                $query = "INSERT INTO activities 
+                SET activity = :activity, theme = :theme, description = :description, website  = :website, image = :image, tourguide_id = :tourguide_id";
+                //prepare query for excecution and bind the parameters
+                include 'includes/prepare_bind.php';
+                
+                // Execute the query
+                $stmt->execute();
+               
+                echo "<p class='success'>New record added</p>";
+           
+            }catch(PDOException $exception){ //to handle error
+                    echo '<p class="warning">'."Error: " . $exception->getMessage() . '</p>';
+            }
+            break;
+        
+    }
+
+    /*-------RETREAVE FROM DB-------*/
+    if (isset($_GET['e'])){
+        try {
+            //prepare query
+            $query = "select id, activity, theme, description, website, image, tourguide_id  from activities where id = :id limit 0,1";
+            $stmt = $pdo->prepare( $query );
+            $stmt->bindParam(':id', $_REQUEST['id']);
+            //execute our query
             $stmt->execute();
            
-            echo "<p class='success'>New record added</p>";
-       
+            //store retrieved row to a variable
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+           
+            //values to fill up our form
+            $id = $row['id'];
+            $activity = $row['activity'];
+            $theme = $row['theme'];
+            $description = $row['description'];
+            $website = $row['website'];
+            $image = $row['image'];
+            $tourguide_id = $row['tourguide_id'];
         }catch(PDOException $exception){ //to handle error
-                echo '<p class="warning">'."Error: " . $exception->getMessage() . '</p>';
+            echo "Error: " . $exception->getMessage();
         }
-    break;
-    
-}
-
-/*-------RETREAVE FROM DB-------*/
-if (isset($_GET['e'])){
-    try {
-        //prepare query
-        $query = "select id, activity, theme, description, website, image, tourguide_id  from activities where id = :id limit 0,1";
-        $stmt = $pdo->prepare( $query );
-        $stmt->bindParam(':id', $_REQUEST['id']);
-        //execute our query
-        $stmt->execute();
-       
-        //store retrieved row to a variable
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
-       
-        //values to fill up our form
-        $id = $row['id'];
-        $activity = $row['activity'];
-        $theme = $row['theme'];
-        $description = $row['description'];
-        $website = $row['website'];
-        $image = $row['image'];
-        $tourguide_id = $row['tourguide_id'];
-    }catch(PDOException $exception){ //to handle error
-        echo "Error: " . $exception->getMessage();
     }
-}
 
 ?>
 <!--we have our html form here where user information will be entered-->
@@ -120,7 +120,7 @@ if (isset($_GET['e'])){
                 <input type='hidden' name='action' value='<?php  if (isset($_GET['e'])){echo 'update';}else{echo 'create';} ?>' />
                 <input type='submit' value='Save' />
                
-                <a href='admin.php'>Back to admin</a>
+                 || <a href='admin.php'>Back to admin</a>
             </td>
         </tr>
     </table>

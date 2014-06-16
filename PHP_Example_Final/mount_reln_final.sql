@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.3
+-- version 4.1.6
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 02, 2013 at 11:27 PM
--- Server version: 5.5.28
--- PHP Version: 5.4.7
+-- Generation Time: Mar 30, 2014 at 05:29 AM
+-- Server version: 5.6.16
+-- PHP Version: 5.5.9
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `jamesbond_mountrelational`
+-- Database: `dev`
 --
 
 -- --------------------------------------------------------
@@ -36,13 +36,7 @@ CREATE TABLE IF NOT EXISTS `activities` (
   `tourguide_id` int(2) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `tourguide_id` (`tourguide_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=22 ;
-
---
--- RELATIONS FOR TABLE `activities`:
---   `tourguide_id`
---       `tourguide` -> `id`
---
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=26 ;
 
 --
 -- Dumping data for table `activities`
@@ -104,15 +98,15 @@ CREATE TABLE IF NOT EXISTS `login` (
   `username` varchar(30) NOT NULL,
   `password` varchar(64) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
--- Dumping data for table `login` (james original pword astonmartin, martin pword apple)
+-- Dumping data for table `login`
 --
 
 INSERT INTO `login` (`id`, `username`, `password`) VALUES
-(1, 'james', '2d20b3d90199de26b30956677c650048311547977cdde3df8bf5597a1c9f9899'),
-(2, 'martin', '598a07d64b8bcfdc26983212eaf4230d3db79dfe752e108124f9338a56717f15');
+(4, 'test', '$2a$12$ecc3871e38be86d2cc3b1eqRJVxMsB7u7jhT97D3H1t.WlYXojAka'),
+(10, 'martin', '$2a$12$ac7fcc4d737e3037aa899uV5Vl837jo1sLIkMzCbqZQQ0A1cZv.d2');
 
 -- --------------------------------------------------------
 

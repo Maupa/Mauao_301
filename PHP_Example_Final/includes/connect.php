@@ -1,7 +1,7 @@
 <?php
 try
 {
-  $pdo = new PDO('mysql:host=localhost;dbname=jamesbond_mountrelational', 'jamesbond', 'apple');
+  $pdo = new PDO('mysql:host=localhost;dbname=dev', 'root', '');
 }
 catch (PDOException $e)
 {
