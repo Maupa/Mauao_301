@@ -7,7 +7,7 @@ if (!isset($_SESSION['id'])){
    
     sleep(2);
 
-    header("Location:loginform.php");
+    header("Location:login.php");
     exit;
 }
 ?>

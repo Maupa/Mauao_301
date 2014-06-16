@@ -44,8 +44,7 @@ $stmt->execute();
 $num = $stmt->rowCount();
 echo "".'<br />';
 
-echo "<a href='add.php'>Create New Record</a>".'<br />';
-echo "<a href='logout.php'>logout of admin</a>".'<br />';
+echo "<a href='bureau.php'>Add Record</a>"." || "."<a href='user.php'>Users</a>"." || "."<a href='login.php?u=1'>Logout</a>";;
 if($num>0){ //check if more than 0 record found
 
     echo "<table border='1'>";//start table
@@ -80,10 +79,10 @@ if($num>0){ //check if more than 0 record found
                  echo "<td>{$tourguide_id}</td>";
                 echo "<td>";
                     //we will use this links on next part of this post
-                    echo "<a href='edit.php?id={$id}'>Edit</a>";
+                     echo "<a href='bureau.php?e={$id}'>Edit</a>";
                     echo " / ";
                     //we will use this links on next part of this post
-                    echo "<a href='#' onclick='delete_user( {$id} );'>Delete</a>";
+                    echo "<a href='#' onclick='delete_record( {$id} );'>Delete</a>";
                 echo "</td>";
             echo "</tr>";
         }
@@ -98,9 +97,9 @@ if($num>0){ //check if more than 0 record found
 
 <script type='text/javascript'>
     
-    function delete_user( id ){
+    function delete_record( id ){
         var answer = confirm('Are you sure?');
-        if ( answer ){ //if user clicked ok
+        if (answer){ //if user clicked ok
             //redirect to url with action as delete and id to the record to be deleted
             window.location = 'admin.php?action=delete&id=' + id;
         } 
